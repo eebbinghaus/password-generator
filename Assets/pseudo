@@ -1,0 +1,11 @@
+series of prompts
+
+length of password
+-at least 8, no more than 128
+
+whether or not to include lowercase, uppercase, numeric, and/or special char's
+
+at least one of above needs to be selected
+
+either displayed in an alert of written to the page
+
