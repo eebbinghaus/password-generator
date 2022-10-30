@@ -69,7 +69,8 @@ function generatePassword() {
 
   if (length < 8 || length > 128) {
     alert("Password must be between 8 and 128 characters!");
-    generatePassword();
+
+    return generatePassword();
   } else {
     var lower = confirm(
       "Do you want your password to contain lower case letters?"
@@ -84,6 +85,11 @@ function generatePassword() {
     );
 
     var numbers = confirm("Do you want your password to include numbers?");
+
+    if (!lower && !upper && !special && !numbers) {
+      alert("You must select at least one character type!");
+      return generatePassword();
+    }
 
     //Combines arrays dependant on user selections above
 
@@ -117,7 +123,6 @@ function generatePassword() {
 
   return finalPassword;
 }
-
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
