@@ -1,4 +1,7 @@
 // Assignment Code
+
+//Global variables
+
 var lowerCaseArr = [
   "a",
   "b",
@@ -57,14 +60,16 @@ var upperCaseArr = [
 ];
 var numbersArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialArr = ["!", "@", "#", "$", "*", "%"];
+
+//After button is clicked
 function generatePassword() {
   var length = prompt(
-    "How long do you want your password to be?(must be between 8 and 128 characters)"
+    "How long do you want your password to be? (must be between 8 and 128 characters)"
   );
 
   if (length < 8 || length > 128) {
-    alert("Password must be between 8 and 128 characters");
-    generatePassword();
+    alert("Password must be between 8 and 128 characters!");
+    return "Your Secure Password";
   } else {
     var lower = confirm(
       "Do you want your password to contain lower case letters?"
@@ -79,6 +84,8 @@ function generatePassword() {
     );
 
     var numbers = confirm("Do you want your password to include numbers?");
+
+    //Combines arrays dependant on user selections above
 
     var possiblePassword = [];
     if (lower) {
@@ -99,11 +106,13 @@ function generatePassword() {
 
     var finalPassword = [];
 
+    //Generates random characters and combines into an array
+
     for (var i = 0; i < length; i++) {
       var random = Math.floor(Math.random() * possiblePassword.length);
       finalPassword = finalPassword.concat(possiblePassword[random]);
     }
-    finalPassword = finalPassword.join("");
+    finalPassword = finalPassword.join(""); //turns array into a string without the commas
   }
 
   return finalPassword;
